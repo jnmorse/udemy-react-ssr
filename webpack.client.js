@@ -10,7 +10,7 @@ module.exports = {
     bundle: './src/client'
   },
 
-  devtool: 'cheap-module-source-map',
+  devtool: 'source-map',
 
   output: {
     path: `${__dirname}/public`,
