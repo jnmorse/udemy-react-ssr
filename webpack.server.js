@@ -22,8 +22,11 @@ module.exports = {
         options: {
           presets: [
             'react',
-            'stage-0',
             ['env', { node: 'current' }]
+          ],
+          plugins: [
+            // ['transform-object-rest-spread', { useBuiltIns: true }],
+            'transform-runtime'
           ]
         }
       }
