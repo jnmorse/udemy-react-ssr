@@ -10,7 +10,7 @@
     "test": "jest",
     "dev:server": "nodemon --watch server --exec \"node index.js\"",
     "build": "run-s build:client build:server",
-    "build:client": "webpack --config webpack.client.js",
+    "build:client": "webpack --config webpack.client.js -p",
     "build:server": "webpack --config webpack.server.js"
   },
   "repository": {
@@ -30,6 +30,7 @@
   "dependencies": {
     "axios": "^0.16.2",
     "compression": "^1.7.1",
+    "dotenv": "^4.0.0",
     "express": "^4.16.2",
     "express-http-proxy": "^1.0.7",
     "lodash": "^4.17.4",
