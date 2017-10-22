@@ -3,10 +3,13 @@ module.exports = {
     jest: true,
     browser: true
   },
-  
+
   extends: 'jnmorse',
-  
+
   rules: {
-    semi: ['error', 'never']
+    semi: ['error', 'never'],
+    'import/no-extraneous-dependencies': ['error', {
+      devDependencies: ['**/*.test.js,', 'webpack.*.js']
+    }]
   }
 }

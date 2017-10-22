@@ -149,13 +149,6 @@ var Home = function Home() {
       'div',
       null,
       'I\'m the home component'
-    ),
-    _react2.default.createElement(
-      'button',
-      { onClick: function onClick() {
-          return console.log('Hi There');
-        } },
-      'Click Me'
     )
   );
 };
@@ -166,7 +159,7 @@ exports.default = Home;
 /* 5 */
 /***/ (function(module, exports) {
 
-module.exports = {"bundle.js":"js/bundle.a433bc09.js","bundle.js.map":"js/bundle.a433bc09.js.map","react-dom.js":"https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js","react.js":"https://unpkg.com/react@16.0.0/umd/react.production.min.js"}
+module.exports = {"bundle.js":"js/bundle.e0859c7e.js","bundle.js.map":"js/bundle.e0859c7e.js.map","react-dom.js":"https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js","react.js":"https://unpkg.com/react@16.0.0/umd/react.production.min.js"}
 
 /***/ })
 /******/ ]);

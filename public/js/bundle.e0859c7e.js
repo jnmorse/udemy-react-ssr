@@ -121,13 +121,6 @@ var Home = function Home() {
       'div',
       null,
       'I\'m the home component'
-    ),
-    _react2.default.createElement(
-      'button',
-      { onClick: function onClick() {
-          return console.log('Hi There');
-        } },
-      'Click Me'
     )
   );
 };
@@ -136,4 +129,4 @@ exports.default = Home;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.a433bc09.js.map
+//# sourceMappingURL=bundle.e0859c7e.js.map
