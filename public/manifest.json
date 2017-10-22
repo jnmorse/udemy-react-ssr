@@ -1,6 +1,7 @@
 {
-  "bundle.js": "js/bundle.e0859c7e.js",
-  "bundle.js.map": "js/bundle.e0859c7e.js.map",
+  "bundle.js": "js/bundle.5740aee6.js",
+  "bundle.js.map": "js/bundle.5740aee6.js.map",
   "react-dom.js": "https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js",
+  "react-router-dom.js": "https://unpkg.com/react-router-dom@4.2.2/umd/react-router-dom.min.js",
   "react.js": "https://unpkg.com/react@16.0.0/umd/react.production.min.js"
 }

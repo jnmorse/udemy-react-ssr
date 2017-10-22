@@ -60,7 +60,7 @@
 /******/ 	__webpack_require__.p = "";
 /******/
 /******/ 	// Load entry module and return exports
-/******/ 	return __webpack_require__(__webpack_require__.s = 1);
+/******/ 	return __webpack_require__(__webpack_require__.s = 2);
 /******/ })
 /************************************************************************/
 /******/ ([
@@ -71,6 +71,12 @@ module.exports = React;
 
 /***/ }),
 /* 1 */
+/***/ (function(module, exports) {
+
+module.exports = ReactRouterDOM;
+
+/***/ }),
+/* 2 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -80,24 +86,74 @@ var _react = __webpack_require__(0);
 
 var _react2 = _interopRequireDefault(_react);
 
-var _reactDom = __webpack_require__(2);
+var _reactDom = __webpack_require__(3);
 
-var _Home = __webpack_require__(3);
+var _reactRouterDom = __webpack_require__(1);
 
-var _Home2 = _interopRequireDefault(_Home);
+var _Routes = __webpack_require__(4);
+
+var _Routes2 = _interopRequireDefault(_Routes);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-(0, _reactDom.hydrate)(_react2.default.createElement(_Home2.default, null), document.getElementById('root'));
+(0, _reactDom.hydrate)(_react2.default.createElement(
+  _reactRouterDom.BrowserRouter,
+  null,
+  _react2.default.createElement(_Routes2.default, null)
+), document.getElementById('root'));
 
 /***/ }),
-/* 2 */
+/* 3 */
 /***/ (function(module, exports) {
 
 module.exports = ReactDOM;
 
 /***/ }),
-/* 3 */
+/* 4 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _reactRouterDom = __webpack_require__(1);
+
+var _Home = __webpack_require__(5);
+
+var _Home2 = _interopRequireDefault(_Home);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var NotFound = function NotFound() {
+  return _react2.default.createElement(
+    'div',
+    null,
+    _react2.default.createElement(
+      'p',
+      null,
+      'Not Found'
+    )
+  );
+};
+
+exports.default = function () {
+  return _react2.default.createElement(
+    _reactRouterDom.Switch,
+    null,
+    _react2.default.createElement(_reactRouterDom.Route, { exact: true, path: '/', component: _Home2.default }),
+    _react2.default.createElement(_reactRouterDom.Route, { component: NotFound })
+  );
+};
+
+/***/ }),
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -129,4 +185,4 @@ exports.default = Home;
 
 /***/ })
 /******/ ]);
-//# sourceMappingURL=bundle.e0859c7e.js.map
+//# sourceMappingURL=bundle.5740aee6.js.map
