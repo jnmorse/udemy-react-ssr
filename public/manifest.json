@@ -1,6 +1,7 @@
 {
-  "bundle.js": "js/bundle.2a3db854.js",
-  "bundle.js.map": "js/bundle.2a3db854.js.map",
+  "axios.js": "https://unpkg.com/axios@0.16.2/dist/axios.min.js",
+  "bundle.js": "js/bundle.b8680895.js",
+  "bundle.js.map": "js/bundle.b8680895.js.map",
   "react-dom.js": "https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js",
   "react-redux.js": "https://unpkg.com/react-redux@5.0.6/dist/react-redux.min.js",
   "react-router-dom.js": "https://unpkg.com/react-router-dom@4.2.2/umd/react-router-dom.min.js",

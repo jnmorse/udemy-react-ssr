@@ -1,16 +1,15 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
 import Home from './components/Home'
+import UsersList, { loadData } from './components/Users-List'
 
-const NotFound = () => (
-  <div>
-    <p>Not Found</p>
-  </div>
-)
-
-export default () => (
-  <Switch>
-    <Route exact path="/" component={Home} />
-    <Route component={NotFound} />
-  </Switch>
-)
+export default [
+  {
+    path: '/',
+    component: Home,
+    exact: true
+  },
+  {
+    path: '/users',
+    component: UsersList,
+    loadData
+  }
+]
