@@ -93,15 +93,15 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _assign = __webpack_require__(11);
+var _assign = __webpack_require__(12);
 
 var _assign2 = _interopRequireDefault(_assign);
 
-var _HomePage = __webpack_require__(12);
+var _HomePage = __webpack_require__(13);
 
 var _HomePage2 = _interopRequireDefault(_HomePage);
 
-var _UsersListPage = __webpack_require__(13);
+var _UsersListPage = __webpack_require__(14);
 
 var _UsersListPage2 = _interopRequireDefault(_UsersListPage);
 
@@ -149,11 +149,11 @@ var _reactRenderer = __webpack_require__(8);
 
 var _reactRenderer2 = _interopRequireDefault(_reactRenderer);
 
-var _reduxStore = __webpack_require__(26);
+var _reduxStore = __webpack_require__(27);
 
 var _reduxStore2 = _interopRequireDefault(_reduxStore);
 
-var _reducers = __webpack_require__(29);
+var _reducers = __webpack_require__(30);
 
 var _reducers2 = _interopRequireDefault(_reducers);
 
@@ -201,11 +201,15 @@ var _reactRouterConfig = __webpack_require__(1);
 
 var _reactRedux = __webpack_require__(2);
 
+var _serializeJavascript = __webpack_require__(11);
+
+var _serializeJavascript2 = _interopRequireDefault(_serializeJavascript);
+
 var _Routes = __webpack_require__(3);
 
 var _Routes2 = _interopRequireDefault(_Routes);
 
-var _manifest = __webpack_require__(25);
+var _manifest = __webpack_require__(26);
 
 var _manifest2 = _interopRequireDefault(_manifest);
 
@@ -233,7 +237,7 @@ function reactRenderer() {
 
     var scripts = (0, _server.renderToStaticMarkup)(_react2.default.createElement(AppScripts, null));
 
-    var html = '\n      <!DOCTYPE html>\n      <html lang="en-US">\n\n      <head>\n        <title>React and Redux SSR</title>\n      </head>\n\n      <body>\n        <div id="root">' + content + '</div>' + scripts + '</body>\n      </html>';
+    var html = '\n      <!DOCTYPE html>\n      <html lang="en-US">\n\n      <head>\n        <title>React and Redux SSR</title>\n      </head>\n\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.initState = ' + (0, _serializeJavascript2.default)(req.store.getState()) + '\n        </script>\n        ' + scripts + '\n      </body>\n      </html>';
 
     if (context.url) {
       return res.status(302).send({ Location: context.url });
@@ -261,10 +265,16 @@ module.exports = require("react-router-dom");
 /* 11 */
 /***/ (function(module, exports) {
 
-module.exports = require("babel-runtime/core-js/object/assign");
+module.exports = require("serialize-javascript");
 
 /***/ }),
 /* 12 */
+/***/ (function(module, exports) {
+
+module.exports = require("babel-runtime/core-js/object/assign");
+
+/***/ }),
+/* 13 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -297,7 +307,7 @@ exports.default = {
 };
 
 /***/ }),
-/* 13 */
+/* 14 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -307,23 +317,23 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _getPrototypeOf = __webpack_require__(14);
+var _getPrototypeOf = __webpack_require__(15);
 
 var _getPrototypeOf2 = _interopRequireDefault(_getPrototypeOf);
 
-var _classCallCheck2 = __webpack_require__(15);
+var _classCallCheck2 = __webpack_require__(16);
 
 var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
 
-var _createClass2 = __webpack_require__(16);
+var _createClass2 = __webpack_require__(17);
 
 var _createClass3 = _interopRequireDefault(_createClass2);
 
-var _possibleConstructorReturn2 = __webpack_require__(17);
+var _possibleConstructorReturn2 = __webpack_require__(18);
 
 var _possibleConstructorReturn3 = _interopRequireDefault(_possibleConstructorReturn2);
 
-var _inherits2 = __webpack_require__(18);
+var _inherits2 = __webpack_require__(19);
 
 var _inherits3 = _interopRequireDefault(_inherits2);
 
@@ -333,11 +343,11 @@ var _react2 = _interopRequireDefault(_react);
 
 var _reactRedux = __webpack_require__(2);
 
-var _propTypes = __webpack_require__(19);
+var _propTypes = __webpack_require__(20);
 
 var _propTypes2 = _interopRequireDefault(_propTypes);
 
-var _actions = __webpack_require__(20);
+var _actions = __webpack_require__(21);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -403,43 +413,43 @@ exports.default = {
 };
 
 /***/ }),
-/* 14 */
+/* 15 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/core-js/object/get-prototype-of");
 
 /***/ }),
-/* 15 */
+/* 16 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/classCallCheck");
 
 /***/ }),
-/* 16 */
+/* 17 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/createClass");
 
 /***/ }),
-/* 17 */
+/* 18 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/possibleConstructorReturn");
 
 /***/ }),
-/* 18 */
+/* 19 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/inherits");
 
 /***/ }),
-/* 19 */
+/* 20 */
 /***/ (function(module, exports) {
 
 module.exports = require("prop-types");
 
 /***/ }),
-/* 20 */
+/* 21 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -450,19 +460,19 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.fetchUsers = undefined;
 
-var _regenerator = __webpack_require__(21);
+var _regenerator = __webpack_require__(22);
 
 var _regenerator2 = _interopRequireDefault(_regenerator);
 
-var _asyncToGenerator2 = __webpack_require__(22);
+var _asyncToGenerator2 = __webpack_require__(23);
 
 var _asyncToGenerator3 = _interopRequireDefault(_asyncToGenerator2);
 
-var _axios = __webpack_require__(23);
+var _axios = __webpack_require__(24);
 
 var _axios2 = _interopRequireDefault(_axios);
 
-var _api = __webpack_require__(24);
+var _api = __webpack_require__(25);
 
 var _api2 = _interopRequireDefault(_api);
 
@@ -507,25 +517,25 @@ var fetchUsers = exports.fetchUsers = function fetchUsers() {
 };
 
 /***/ }),
-/* 21 */
+/* 22 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/regenerator");
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/helpers/asyncToGenerator");
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -537,13 +547,13 @@ Object.defineProperty(exports, "__esModule", {
 exports.default = 'https://react-ssr-api.herokuapp.com';
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, exports) {
 
-module.exports = {"axios.js":"https://unpkg.com/axios@0.16.2/dist/axios.min.js","bundle.js":"js/bundle.133d31a2.js","bundle.js.map":"js/bundle.133d31a2.js.map","react-dom.js":"https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js","react-redux.js":"https://unpkg.com/react-redux@5.0.6/dist/react-redux.min.js","react-router-dom.js":"https://unpkg.com/react-router-dom@4.2.2/umd/react-router-dom.min.js","react.js":"https://unpkg.com/react@16.0.0/umd/react.production.min.js","redux-thunk.js":"https://unpkg.com/redux-thunk@2.2.0/dist/redux-thunk.min.js","redux.js":"https://unpkg.com/redux@3.7.2/dist/redux.min.js"}
+module.exports = {"axios.js":"https://unpkg.com/axios@0.16.2/dist/axios.min.js","bundle.js":"js/bundle.88042c78.js","bundle.js.map":"js/bundle.88042c78.js.map","react-dom.js":"https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js","react-redux.js":"https://unpkg.com/react-redux@5.0.6/dist/react-redux.min.js","react-router-dom.js":"https://unpkg.com/react-router-dom@4.2.2/umd/react-router-dom.min.js","react.js":"https://unpkg.com/react@16.0.0/umd/react.production.min.js","redux-thunk.js":"https://unpkg.com/redux-thunk@2.2.0/dist/redux-thunk.min.js","redux.js":"https://unpkg.com/redux@3.7.2/dist/redux.min.js"}
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -553,7 +563,7 @@ Object.defineProperty(exports, "__esModule", {
   value: true
 });
 
-var _promise = __webpack_require__(27);
+var _promise = __webpack_require__(28);
 
 var _promise2 = _interopRequireDefault(_promise);
 
@@ -563,7 +573,7 @@ var _redux = __webpack_require__(5);
 
 var _reactRouterConfig = __webpack_require__(1);
 
-var _reduxThunk = __webpack_require__(28);
+var _reduxThunk = __webpack_require__(29);
 
 var _reduxThunk2 = _interopRequireDefault(_reduxThunk);
 
@@ -597,19 +607,19 @@ function reduxStoreMiddleware(reducers) {
 }
 
 /***/ }),
-/* 27 */
+/* 28 */
 /***/ (function(module, exports) {
 
 module.exports = require("babel-runtime/core-js/promise");
 
 /***/ }),
-/* 28 */
+/* 29 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 29 */
+/* 30 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -621,7 +631,7 @@ Object.defineProperty(exports, "__esModule", {
 
 var _redux = __webpack_require__(5);
 
-var _usersReducer = __webpack_require__(30);
+var _usersReducer = __webpack_require__(31);
 
 var _usersReducer2 = _interopRequireDefault(_usersReducer);
 
@@ -632,7 +642,7 @@ exports.default = (0, _redux.combineReducers)({
 });
 
 /***/ }),
-/* 30 */
+/* 31 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";

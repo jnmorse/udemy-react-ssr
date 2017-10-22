@@ -3,6 +3,7 @@ import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import { StaticRouter } from 'react-router-dom'
 import { renderRoutes } from 'react-router-config'
 import { Provider } from 'react-redux'
+import serializeJavascript from 'serialize-javascript'
 import Routes from '../client/Routes'
 import clientManifest from '../../public/manifest.json'
 
@@ -42,7 +43,12 @@ export default function reactRenderer() {
       </head>
 
       <body>
-        <div id="root">${content}</div>${scripts}</body>
+        <div id="root">${content}</div>
+        <script>
+          window.initState = ${serializeJavascript(req.store.getState())}
+        </script>
+        ${scripts}
+      </body>
       </html>`
 
     if (context.url) {

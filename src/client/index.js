@@ -9,7 +9,11 @@ import { Provider } from 'react-redux'
 import reducers from './reducers'
 import Routes from './Routes'
 
-const store = createStore(reducers, {}, applyMiddleware(thunk))
+const { initState } = window
+
+delete (window.initState)
+
+const store = createStore(reducers, initState, applyMiddleware(thunk))
 
 hydrate(
   <Provider store={store}>
