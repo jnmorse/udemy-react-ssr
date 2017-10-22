@@ -25,7 +25,7 @@ module.exports = {
             ['env', { node: 'current' }]
           ],
           plugins: [
-            // ['transform-object-rest-spread', { useBuiltIns: true }],
+            ['transform-object-rest-spread', { useBuiltIns: true }],
             'transform-runtime'
           ]
         }

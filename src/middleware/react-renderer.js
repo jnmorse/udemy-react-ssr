@@ -33,7 +33,17 @@ export default function reactRenderer() {
 
     const scripts = renderToStaticMarkup(<AppScripts />)
 
-    const html = `<!DOCTYPE html><html lang="en-US"><head><title>React and Redux SSR</title></head><body><div id="root">${content}</div>${scripts}</body></html>`
+    const html = `
+      <!DOCTYPE html>
+      <html lang="en-US">
+
+      <head>
+        <title>React and Redux SSR</title>
+      </head>
+
+      <body>
+        <div id="root">${content}</div>${scripts}</body>
+      </html>`
 
     if (context.url) {
       return res.status(302).send({ Location: context.url })
