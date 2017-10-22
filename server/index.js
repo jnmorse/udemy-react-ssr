@@ -81,33 +81,18 @@ var _express = __webpack_require__(2);
 
 var _express2 = _interopRequireDefault(_express);
 
-var _react = __webpack_require__(0);
+var _renderer = __webpack_require__(3);
 
-var _react2 = _interopRequireDefault(_react);
-
-var _server = __webpack_require__(3);
-
-var _Home = __webpack_require__(4);
-
-var _Home2 = _interopRequireDefault(_Home);
-
-var _manifest = __webpack_require__(5);
-
-var _manifest2 = _interopRequireDefault(_manifest);
+var _renderer2 = _interopRequireDefault(_renderer);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var app = (0, _express2.default)();
 
-var AppScripts = function AppScripts() {
-  return [_react2.default.createElement('script', { key: 'react', src: _manifest2.default['react.js'] }), _react2.default.createElement('script', { key: 'react-dom', src: _manifest2.default['react-dom.js'] }), _react2.default.createElement('script', { key: 'bundle', src: _manifest2.default['bundle.js'] })];
-};
-
 app.use(_express2.default.static('public'));
 
 app.get('/', function (req, res) {
-  var content = '\n    <!DOCTYPE html>\n    <html>\n\n    <head>\n    </head>\n\n    <body>\n      <div id="root">' + (0, _server.renderToString)(_react2.default.createElement(_Home2.default, null)) + '</div>\n      ' + (0, _server.renderToStaticMarkup)(_react2.default.createElement(AppScripts, null)) + '\n    </body>\n\n    </html>\n  ';
-  res.send(content);
+  res.send((0, _renderer2.default)());
 });
 
 module.exports = app;
@@ -120,12 +105,50 @@ module.exports = require("express");
 
 /***/ }),
 /* 3 */
+/***/ (function(module, exports, __webpack_require__) {
+
+"use strict";
+
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _react = __webpack_require__(0);
+
+var _react2 = _interopRequireDefault(_react);
+
+var _server = __webpack_require__(4);
+
+var _Home = __webpack_require__(5);
+
+var _Home2 = _interopRequireDefault(_Home);
+
+var _manifest = __webpack_require__(6);
+
+var _manifest2 = _interopRequireDefault(_manifest);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var AppScripts = function AppScripts() {
+  return [_react2.default.createElement('script', { key: 'react', src: _manifest2.default['react.js'] }), _react2.default.createElement('script', { key: 'react-dom', src: _manifest2.default['react-dom.js'] }), _react2.default.createElement('script', { key: 'bundle', src: _manifest2.default['bundle.js'] })];
+};
+
+exports.default = function () {
+  var content = (0, _server.renderToString)(_react2.default.createElement(_Home2.default, null));
+  var scripts = (0, _server.renderToStaticMarkup)(_react2.default.createElement(AppScripts, null));
+
+  return '<!DOCTYPE html><html lang="en-US"><head></head><body><div id="root">' + content + '</div>' + scripts + '</body></html>';
+};
+
+/***/ }),
+/* 4 */
 /***/ (function(module, exports) {
 
 module.exports = require("react-dom/server");
 
 /***/ }),
-/* 4 */
+/* 5 */
 /***/ (function(module, exports, __webpack_require__) {
 
 "use strict";
@@ -156,7 +179,7 @@ var Home = function Home() {
 exports.default = Home;
 
 /***/ }),
-/* 5 */
+/* 6 */
 /***/ (function(module, exports) {
 
 module.exports = {"bundle.js":"js/bundle.e0859c7e.js","bundle.js.map":"js/bundle.e0859c7e.js.map","react-dom.js":"https://unpkg.com/react-dom@16.0.0/umd/react-dom.production.min.js","react.js":"https://unpkg.com/react@16.0.0/umd/react.production.min.js"}
