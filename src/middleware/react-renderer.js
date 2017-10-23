@@ -21,14 +21,15 @@ export default function reactRenderer() {
     /* eslint-enable function-paren-newline */
 
     const AppScripts = () => [
-      <script key="axios" src={clientManifest['axios.js']} />,
-      <script key="react" src={clientManifest['react.js']} />,
-      <script key="react-dom" src={clientManifest['react-dom.js']} />,
-      <script key="react-router-dom" src={clientManifest['react-router-dom.js']} />,
-      <script key="redux" src={clientManifest['redux.js']} />,
-      <script key="redux-thunk" src={clientManifest['redux-thunk.js']} />,
-      <script key="react-redux" src={clientManifest['react-redux.js']} />,
-      <script key="bundle" src={clientManifest['bundle.js']} />
+      <script src={clientManifest['axios.js']} />,
+      <script src={clientManifest['object-assign.js']} />,
+      <script src={clientManifest['react.js']} />,
+      <script src={clientManifest['react-dom.js']} />,
+      <script src={clientManifest['react-router-dom.js']} />,
+      <script src={clientManifest['redux.js']} />,
+      <script src={clientManifest['redux-thunk.js']} />,
+      <script src={clientManifest['react-redux.js']} />,
+      <script src={`/${clientManifest['bundle.js']}`} />
     ]
 
     const html = `
@@ -45,7 +46,6 @@ export default function reactRenderer() {
           window.initState = ${serializeJavascript(req.store.getState())}
         </script>
         ${renderToStaticMarkup(<AppScripts />)}
-        <script src="/js/bundle.js"></script>
       </body>
       </html>`
 

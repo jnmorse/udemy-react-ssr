@@ -1,16 +1,14 @@
 import React from 'react'
 import { hydrate } from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
-import { createStore, applyMiddleware } from 'redux'
-import thunk from 'redux-thunk'
 import { Provider } from 'react-redux'
 
-import reducers from './reducers'
+import reduxStore from './helpers/redux-store'
 import App from './App'
 
 const { initState } = window
 
-const store = createStore(reducers, initState, applyMiddleware(thunk))
+const store = reduxStore(initState)
 
 hydrate(
   <Provider store={store}>

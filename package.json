@@ -11,6 +11,7 @@
     "dev": "npm-run-all -p \"build:client -- --watch\" \"build:server -- --watch\" dev:server",
     "dev:server": "nodemon --watch server --exec \"node index.js\"",
     "build": "run-s build:client build:server",
+    "build:production": "NODE_ENV=production run-s \"build:client -- -p\" \"build:server\"",
     "build:client": "webpack --config webpack.client.js",
     "build:server": "webpack --config webpack.server.js"
   },
