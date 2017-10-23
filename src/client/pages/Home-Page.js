@@ -1,10 +1,8 @@
 import React from 'react'
 
-const Home = () => (
-  <div>
-    <div>{'I\'m the home component'}</div>
-  </div>
-)
+const Home = () => [
+  <div key="1">{'I\'m the home component'}</div>
+]
 
 export default {
   component: Home

@@ -1,19 +1,23 @@
 import { createStore, applyMiddleware } from 'redux'
-import { matchRoutes } from 'react-router-config'
+import { matchPath } from 'react-router-dom'
 import thunk from 'redux-thunk'
 
-import Routes from '../client/Routes'
+import routes from '../client/routes'
 
 export default function reduxStoreMiddleware(reducers) {
   return function reduxStore(req, res, next) {
     const store = createStore(reducers, {}, applyMiddleware(thunk))
 
-    const promises = matchRoutes(Routes, req.path).map(({ route }) => {
-      if (!route.loadData) {
-        return null
-      }
+    const promises = []
 
-      return route.loadData(store)
+    routes.forEach((route, path) => {
+      const thisRoute = { ...route, path }
+
+      if (matchPath(req.path, thisRoute)) {
+        if (route.loadData) {
+          promises.push(route.loadData(store))
+        }
+      }
     })
 
     Promise.all(promises)

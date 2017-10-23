@@ -1,4 +1,3 @@
-const ManifestPlugin = require('webpack-manifest-plugin')
 const nodeExternals = require('webpack-node-externals')
 
 module.exports = {
@@ -8,7 +7,6 @@ module.exports = {
 
   output: {
     path: `${__dirname}/server`,
-    hashDigestLength: 8,
     filename: 'index.js',
     libraryTarget: 'commonjs2'
   },
@@ -22,7 +20,10 @@ module.exports = {
         options: {
           presets: [
             'react',
-            ['env', { node: 'current' }]
+            ['env', {
+              useBuiltIns: true,
+              node: '8.7.0'
+            }]
           ],
           plugins: [
             ['transform-object-rest-spread', { useBuiltIns: true }],
@@ -32,10 +33,5 @@ module.exports = {
       }
     ]
   },
-  externals: [nodeExternals()],
-  plugins: [
-    new ManifestPlugin({
-      filename: 'server-manifest.js'
-    })
-  ]
+  externals: [nodeExternals()]
 }

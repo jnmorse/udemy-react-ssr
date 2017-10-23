@@ -5,7 +5,9 @@ import { fetchUsers } from '../actions'
 
 class UserList extends Component {
   componentDidMount() {
-    this.props.fetchUsers()
+    if (!this.props.users.length) {
+      this.props.fetchUsers()
+    }
   }
 
   renderUsers() {
@@ -18,7 +20,9 @@ class UserList extends Component {
     return(
       <div>
         {'Here\'s a big list of users:'}
-        {this.renderUsers()}
+        <ul>
+          {this.renderUsers()}
+        </ul>
       </div>
     )
   }
