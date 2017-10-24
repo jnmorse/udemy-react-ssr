@@ -18,12 +18,14 @@ app.use('/api', proxy(`${apiUrl}`, {
 
 app.use(express.static('public'))
 
-app.get('*', reduxStore(reducers), reactRenderer(), (req, res, next) => {
-  if (req.html) {
-    res.send(req.html)
-  } else {
-    next(0)
+app.get('*', reduxStore(reducers), reactRenderer(), (req, res) => {
+  const { html, context } = req
+
+  if (context.notFound) {
+    res.status(404)
   }
+
+  res.send(html)
 })
 
 app.get('*', (req, res) => {

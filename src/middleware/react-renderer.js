@@ -50,10 +50,7 @@ export default function reactRenderer() {
       </body>
       </html>`
 
-    if (context.url) {
-      return res.status(302).send({ Location: context.url })
-    }
-
+    req.context = context
     req.html = html
 
     return next()

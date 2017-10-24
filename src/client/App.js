@@ -1,12 +1,15 @@
 import React from 'react'
-import { Route } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 import routes from './routes'
 
 const App = () => [
   <Route key="header" {...routes.get('header')} />,
-  <Route key="home page" {...routes.get('home')} />,
-  <Route key="user list" {...routes.get('users list')} />
+  <Switch key="pages">
+    <Route {...routes.get('home')} />
+    <Route {...routes.get('users list')} />
+    <Route {...routes.get('not found')} />
+  </Switch>
 ]
 
 export default App
