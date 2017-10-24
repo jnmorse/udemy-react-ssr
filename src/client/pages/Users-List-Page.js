@@ -16,11 +16,16 @@ class UserList extends Component {
 
   render() {
     return(
-      <div>
-        {'Here\'s a big list of users:'}
-        <ul>
-          {this.renderUsers()}
-        </ul>
+      <div className="container">
+        <div className="row">
+          <header>
+            <h1>{'Here\'s a big list of users:'}</h1>
+          </header>
+
+          <ul>
+            {this.renderUsers()}
+          </ul>
+        </div>
       </div>
     )
   }

@@ -419,7 +419,7 @@ function reactRenderer() {
       return [_react2.default.createElement('script', { src: _manifest2.default['axios.js'] }), _react2.default.createElement('script', { src: _manifest2.default['object-assign.js'] }), _react2.default.createElement('script', { src: _manifest2.default['react.js'] }), _react2.default.createElement('script', { src: _manifest2.default['react-dom.js'] }), _react2.default.createElement('script', { src: _manifest2.default['react-router-dom.js'] }), _react2.default.createElement('script', { src: _manifest2.default['redux.js'] }), _react2.default.createElement('script', { src: _manifest2.default['redux-thunk.js'] }), _react2.default.createElement('script', { src: _manifest2.default['react-redux.js'] }), _react2.default.createElement('script', { src: '/' + _manifest2.default['bundle.js'] })];
     };
 
-    var html = '\n      <!DOCTYPE html>\n      <html lang="en-US">\n\n      <head>\n        <title>React and Redux SSR</title>\n      </head>\n\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.initState = ' + (0, _serializeJavascript2.default)(req.store.getState()) + '\n        </script>\n        ' + (0, _server.renderToStaticMarkup)(_react2.default.createElement(AppScripts, null)) + '\n      </body>\n      </html>';
+    var html = '\n      <!DOCTYPE html>\n      <html lang="en-US">\n\n      <head>\n        <title>React and Redux SSR</title>\n        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">\n      </head>\n\n      <body>\n        <div id="root">' + content + '</div>\n        <script>\n          window.initState = ' + (0, _serializeJavascript2.default)(req.store.getState()) + '\n        </script>\n        ' + (0, _server.renderToStaticMarkup)(_react2.default.createElement(AppScripts, null)) + '\n      </body>\n      </html>';
 
     if (context.url) {
       return res.status(302).send({ Location: context.url });
@@ -518,11 +518,24 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
-  return [_react2.default.createElement(
-    'div',
-    { key: '1' },
-    'I\'m the home component'
-  )];
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "header",
+      { className: "center-align", style: { marginTop: 200 } },
+      _react2.default.createElement(
+        "h1",
+        null,
+        "Welcome"
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Check out these awesome features"
+      )
+    )
+  );
 };
 
 exports.default = {
@@ -603,12 +616,24 @@ var UserList = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
-        'Here\'s a big list of users:',
+        { className: 'container' },
         _react2.default.createElement(
-          'ul',
-          null,
-          this.renderUsers()
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'header',
+            null,
+            _react2.default.createElement(
+              'h1',
+              null,
+              'Here\'s a big list of users:'
+            )
+          ),
+          _react2.default.createElement(
+            'ul',
+            null,
+            this.renderUsers()
+          )
         )
       );
     }
@@ -736,7 +761,7 @@ var Header = function (_Component) {
           null,
           _react2.default.createElement(
             'header',
-            null,
+            { className: 'brand-logo left' },
             _react2.default.createElement(
               _reactRouterDom.Link,
               { to: '/' },
@@ -745,7 +770,7 @@ var Header = function (_Component) {
           ),
           _react2.default.createElement(
             'ul',
-            null,
+            { className: 'right' },
             _react2.default.createElement(
               'li',
               null,

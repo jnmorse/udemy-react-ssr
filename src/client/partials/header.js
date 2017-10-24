@@ -22,11 +22,11 @@ class Header extends Component {
     return(
       <header>
         <nav>
-          <header>
+          <header className="brand-logo left">
             <Link to="/">React SSR</Link>
           </header>
 
-          <ul>
+          <ul className="right">
             <li><Link to="/users">Users</Link></li>
             <li><Link to="/admins">Admins</Link></li>
             <li>{ authButton }</li>

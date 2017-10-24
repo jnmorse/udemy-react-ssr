@@ -2700,11 +2700,24 @@ var _react2 = _interopRequireDefault(_react);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var Home = function Home() {
-  return [_react2.default.createElement(
-    'div',
-    { key: '1' },
-    'I\'m the home component'
-  )];
+  return _react2.default.createElement(
+    "div",
+    null,
+    _react2.default.createElement(
+      "header",
+      { className: "center-align", style: { marginTop: 200 } },
+      _react2.default.createElement(
+        "h1",
+        null,
+        "Welcome"
+      ),
+      _react2.default.createElement(
+        "p",
+        null,
+        "Check out these awesome features"
+      )
+    )
+  );
 };
 
 exports.default = {
@@ -2785,12 +2798,24 @@ var UserList = function (_Component) {
     value: function render() {
       return _react2.default.createElement(
         'div',
-        null,
-        'Here\'s a big list of users:',
+        { className: 'container' },
         _react2.default.createElement(
-          'ul',
-          null,
-          this.renderUsers()
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'header',
+            null,
+            _react2.default.createElement(
+              'h1',
+              null,
+              'Here\'s a big list of users:'
+            )
+          ),
+          _react2.default.createElement(
+            'ul',
+            null,
+            this.renderUsers()
+          )
         )
       );
     }
@@ -5302,7 +5327,7 @@ var Header = function (_Component) {
           null,
           _react2.default.createElement(
             'header',
-            null,
+            { className: 'brand-logo left' },
             _react2.default.createElement(
               _reactRouterDom.Link,
               { to: '/' },
@@ -5311,7 +5336,7 @@ var Header = function (_Component) {
           ),
           _react2.default.createElement(
             'ul',
-            null,
+            { className: 'right' },
             _react2.default.createElement(
               'li',
               null,
