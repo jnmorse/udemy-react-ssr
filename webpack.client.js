@@ -20,17 +20,7 @@ module.exports = {
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        loader: 'babel-loader',
-        options: {
-          presets: [
-            'react',
-            ['env', { browsers: 'last 2 versions', useBuiltIns: true }]
-          ],
-          plugins: [
-            ['transform-object-rest-spread', { useBuiltIns: true }],
-            'transform-runtime'
-          ]
-        }
+        loader: 'babel-loader'
       }
     ]
   },

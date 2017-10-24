@@ -5,8 +5,8 @@ import NotFound from './pages/Not-Found'
 
 const routes = new Map()
 
-routes.set('home', { path: '/', ...Home, exact: true })
-routes.set('users list', { path: '/users', ...UsersList })
+routes.set('home', { ...Home, path: '/', exact: true })
+routes.set('users list', { ...UsersList, path: '/users' })
 routes.set('header', { ...Header })
 routes.set('not found', { ...NotFound })
 

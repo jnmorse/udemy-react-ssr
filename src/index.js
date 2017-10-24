@@ -32,4 +32,4 @@ app.get('*', (req, res) => {
   res.sendStatus(404)
 })
 
-module.exports = app
+export default app

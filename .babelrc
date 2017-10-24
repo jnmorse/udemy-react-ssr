@@ -1,0 +1,25 @@
+{
+  "env": {
+    "client": {
+      "presets": [
+        "react", ["env", {
+          "browsers": "last 2 versions"
+        }]
+      ],
+      "plugins": [
+        ["transform-object-rest-spread", {
+          "useBuiltIns": true
+        }],
+        "transform-runtime"
+      ]
+    },
+    "server": {
+      "plugins": [
+        ["transform-object-rest-spread", {
+          "useBuiltIns": true
+        }],
+        "transform-react-jsx"
+      ]
+    }
+  }
+}
