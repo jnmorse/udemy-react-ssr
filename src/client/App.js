@@ -3,13 +3,10 @@ import { Route } from 'react-router-dom'
 
 import routes from './routes'
 
-// const HomeRoute = routes.get('/')
-
-const { loadData, ...UsersRoute } = routes.get('/users')
-
 const App = () => [
-  <Route key="home page" path="/" {...routes.get('/')} />,
-  <Route key="user list" path="/users" {...UsersRoute} />
+  <Route key="header" {...routes.get('header')} />,
+  <Route key="home page" {...routes.get('home')} />,
+  <Route key="user list" {...routes.get('users list')} />
 ]
 
 export default App
