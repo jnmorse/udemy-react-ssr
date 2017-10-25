@@ -3,6 +3,7 @@ import { renderToString, renderToStaticMarkup } from 'react-dom/server'
 import { StaticRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import serializeJavascript from 'serialize-javascript'
+import { Helmet } from 'react-helmet'
 import clientManifest from '../../public/manifest.json'
 import App from '../client/App'
 
@@ -19,6 +20,8 @@ export default function reactRenderer() {
       </Provider>
     )
     /* eslint-enable function-paren-newline */
+
+    const helmet = Helmet.renderStatic()
 
     const AppScripts = () => [
       <script src={clientManifest['axios.js']} />,
@@ -37,7 +40,8 @@ export default function reactRenderer() {
       <html lang="en-US">
 
       <head>
-        <title>React and Redux SSR</title>
+        ${helmet.title.toString()}
+        ${helmet.meta.toString()}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
       </head>
 

@@ -274,9 +274,12 @@ module.exports = require("express-http-proxy");
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_serialize_javascript__ = __webpack_require__(14);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4_serialize_javascript___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_4_serialize_javascript__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__public_manifest_json__ = __webpack_require__(15);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5__public_manifest_json__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__client_App__ = __webpack_require__(16);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_helmet__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5_react_helmet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_5_react_helmet__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__public_manifest_json__ = __webpack_require__(15);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_6__public_manifest_json__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_7__client_App__ = __webpack_require__(16);
+
 
 
 
@@ -296,19 +299,22 @@ function reactRenderer() {
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         __WEBPACK_IMPORTED_MODULE_2_react_router_dom__["StaticRouter"],
         { location: req.path, context: context },
-        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_6__client_App__["a" /* default */], null)
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_7__client_App__["a" /* default */], null)
       )
     ));
     /* eslint-enable function-paren-newline */
 
-    const AppScripts = () => [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['axios.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['object-assign.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['react.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['react-dom.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['react-router-dom.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['redux.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['redux-thunk.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['react-redux.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: `/${__WEBPACK_IMPORTED_MODULE_5__public_manifest_json___default.a['bundle.js']}` })];
+    const helmet = __WEBPACK_IMPORTED_MODULE_5_react_helmet__["Helmet"].renderStatic();
+
+    const AppScripts = () => [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['axios.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['object-assign.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['react.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['react-dom.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['react-router-dom.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['redux.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['redux-thunk.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: __WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['react-redux.js'] }), __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('script', { src: `/${__WEBPACK_IMPORTED_MODULE_6__public_manifest_json___default.a['bundle.js']}` })];
 
     const html = `
       <!DOCTYPE html>
       <html lang="en-US">
 
       <head>
-        <title>React and Redux SSR</title>
+        ${helmet.title.toString()}
+        ${helmet.meta.toString()}
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.100.2/css/materialize.min.css">
       </head>
 
@@ -381,23 +387,36 @@ const App = () => [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(_
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_helmet__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_helmet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_helmet__);
+
 
 
 const Home = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-  "div",
+  'div',
   null,
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-    "header",
-    { className: "center-align", style: { marginTop: 200 } },
+    __WEBPACK_IMPORTED_MODULE_1_react_helmet__["Helmet"],
+    null,
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "h1",
+      'title',
       null,
-      "Welcome"
+      'React SSR'
+    ),
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { property: 'og:title', content: 'React SSR' })
+  ),
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+    'header',
+    { className: 'center-align', style: { marginTop: 200 } },
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'h1',
+      null,
+      'Welcome'
     ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
-      "p",
+      'p',
       null,
-      "Check out these awesome features"
+      'Check out these awesome features'
     )
   )
 );
@@ -415,7 +434,10 @@ const Home = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_helmet__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_helmet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_helmet__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions__ = __webpack_require__(5);
+
 
 
 
@@ -425,6 +447,21 @@ class UserList extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
   componentDidMount() {
     this.props.fetchUsers();
   }
+
+  /* eslint-disable class-methods-use-this */
+  head() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_3_react_helmet__["Helmet"],
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'title',
+        null,
+        `React SSR: Users List (${this.props.users.length})`
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { property: 'og:title', content: 'Users List' })
+    );
+  }
+  /* eslint-enable class-methods-use-this */
 
   renderUsers() {
     return this.props.users.map(user => [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -438,6 +475,7 @@ class UserList extends __WEBPACK_IMPORTED_MODULE_0_react__["Component"] {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'container' },
+      this.head(),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'row' },
@@ -472,9 +510,9 @@ UserList.propTypes = {
   fetchUsers: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.func.isRequired
 };
 
-UserList.loadData = ({ dispatch }) => dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["c" /* fetchUsers */])());
+UserList.loadData = ({ dispatch }) => dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions__["c" /* fetchUsers */])());
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, { fetchUsers: __WEBPACK_IMPORTED_MODULE_3__actions__["c" /* fetchUsers */] })(UserList));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, { fetchUsers: __WEBPACK_IMPORTED_MODULE_4__actions__["c" /* fetchUsers */] })(UserList));
 
 /***/ }),
 /* 19 */
@@ -584,6 +622,9 @@ function mapStateToProps({ auth }) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_helmet__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_helmet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_helmet__);
+
 
 
 
@@ -594,6 +635,15 @@ const NotFound = ({ staticContext }) => {
   return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
     'section',
     null,
+    __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_2_react_helmet__["Helmet"],
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'title',
+        null,
+        'React SSR: 404 Not Found'
+      )
+    ),
     __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'header',
       { className: 'center-align', style: { marginTop: 200 } },
@@ -635,7 +685,10 @@ NotFound.defaultProps = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_helmet__ = __webpack_require__(30);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_helmet___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_helmet__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions__ = __webpack_require__(5);
+
 
 
 
@@ -645,6 +698,21 @@ class Admins extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
   componentDidMount() {
     this.props.fetchAdmins();
   }
+
+  /* eslint-disable class-methods-use-this */
+  head() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      __WEBPACK_IMPORTED_MODULE_3_react_helmet__["Helmet"],
+      null,
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'title',
+        null,
+        'React SSR: List of Admins'
+      ),
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement('meta', { property: 'og:title', content: 'List of Admins' })
+    );
+  }
+  /* eslint-enable class-methods-use-this */
 
   renderAdmins() {
     return this.props.admins.map(admin => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
@@ -658,6 +726,7 @@ class Admins extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
     return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
       'div',
       { className: 'container' },
+      this.head(),
       __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
         'div',
         { className: 'row' },
@@ -688,13 +757,13 @@ Admins.propTypes = {
   fetchAdmins: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
 };
 
-Admins.loadData = ({ dispatch }) => dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["a" /* fetchAdmins */])());
+Admins.loadData = ({ dispatch }) => dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions__["a" /* fetchAdmins */])());
 
 function mapStateToProps({ admins, auth }) {
   return { admins, auth };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps, { fetchAdmins: __WEBPACK_IMPORTED_MODULE_3__actions__["a" /* fetchAdmins */] })(Admins));
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps, { fetchAdmins: __WEBPACK_IMPORTED_MODULE_4__actions__["a" /* fetchAdmins */] })(Admins));
 
 /***/ }),
 /* 22 */
@@ -918,6 +987,12 @@ function adminsReducer(state = [], action) {
 
   return Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps)(RequireAuth);
 });
+
+/***/ }),
+/* 30 */
+/***/ (function(module, exports) {
+
+module.exports = require("react-helmet");
 
 /***/ })
 /******/ ]);

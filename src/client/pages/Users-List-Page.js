@@ -1,12 +1,24 @@
 import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
+import { Helmet } from 'react-helmet'
 import { fetchUsers } from '../actions'
 
 class UserList extends Component {
   componentDidMount() {
     this.props.fetchUsers()
   }
+
+  /* eslint-disable class-methods-use-this */
+  head() {
+    return(
+      <Helmet>
+        <title>{`React SSR: Users List (${this.props.users.length})`}</title>
+        <meta property="og:title" content="Users List" />
+      </Helmet>
+    )
+  }
+  /* eslint-enable class-methods-use-this */
 
   renderUsers() {
     return this.props.users.map(user => [
@@ -17,6 +29,7 @@ class UserList extends Component {
   render() {
     return(
       <div className="container">
+        {this.head()}
         <div className="row">
           <header>
             <h1>{'Here\'s a big list of users:'}</h1>
