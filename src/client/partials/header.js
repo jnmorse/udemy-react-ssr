@@ -42,11 +42,10 @@ Header.propTypes = {
   auth: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired
 }
 
+Header.loadData = ({ dispatch }) => dispatch(fetchCurrentUser())
+
 function mapStateToProps({ auth }) {
   return{ auth }
 }
 
-export default {
-  component: connect(mapStateToProps, { fetchCurrentUser })(Header),
-  loadData: ({ dispatch }) => dispatch(fetchCurrentUser())
-}
+export default connect(mapStateToProps, { fetchCurrentUser })(Header)

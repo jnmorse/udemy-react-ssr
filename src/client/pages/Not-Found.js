@@ -26,6 +26,4 @@ NotFound.defaultProps = {
   staticContext: {}
 }
 
-export default {
-  component: NotFound
-}
+export default NotFound

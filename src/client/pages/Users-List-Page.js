@@ -43,11 +43,6 @@ UserList.propTypes = {
   fetchUsers: PropTypes.func.isRequired
 }
 
-function loadData(store) {
-  return store.dispatch(fetchUsers())
-}
+UserList.loadData = ({ dispatch }) => dispatch(fetchUsers())
 
-export default {
-  component: connect(mapStateToProps, { fetchUsers })(UserList),
-  loadData
-}
+export default connect(mapStateToProps, { fetchUsers })(UserList)

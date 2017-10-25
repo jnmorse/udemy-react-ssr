@@ -94,37 +94,17 @@ module.exports = require("prop-types");
 
 "use strict";
 const FETCH_USERS = 'fetch_users';
-/* harmony export (immutable) */ __webpack_exports__["b"] = FETCH_USERS;
+/* harmony export (immutable) */ __webpack_exports__["c"] = FETCH_USERS;
 
 const FETCH_CURRENT_USER = 'fetch_current_user';
-/* harmony export (immutable) */ __webpack_exports__["a"] = FETCH_CURRENT_USER;
+/* harmony export (immutable) */ __webpack_exports__["b"] = FETCH_CURRENT_USER;
+
+const FETCH_ADMINS = 'fetch_admins';
+/* harmony export (immutable) */ __webpack_exports__["a"] = FETCH_ADMINS;
 
 
 /***/ }),
 /* 5 */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_Home_Page__ = __webpack_require__(17);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_Users_List_Page__ = __webpack_require__(18);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__partials_header__ = __webpack_require__(19);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_Not_Found__ = __webpack_require__(20);
-
-
-
-
-
-const routes = new Map();
-
-routes.set('home', Object.assign({}, __WEBPACK_IMPORTED_MODULE_0__pages_Home_Page__["a" /* default */], { path: '/', exact: true }));
-routes.set('users list', Object.assign({}, __WEBPACK_IMPORTED_MODULE_1__pages_Users_List_Page__["a" /* default */], { path: '/users' }));
-routes.set('header', Object.assign({}, __WEBPACK_IMPORTED_MODULE_2__partials_header__["a" /* default */]));
-routes.set('not found', Object.assign({}, __WEBPACK_IMPORTED_MODULE_3__pages_Not_Found__["a" /* default */]));
-
-/* harmony default export */ __webpack_exports__["a"] = (routes);
-
-/***/ }),
-/* 6 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -135,11 +115,11 @@ const fetchUsers = () => async (dispatch, getState, api) => {
   const res = await api.get('/users');
 
   return dispatch({
-    type: __WEBPACK_IMPORTED_MODULE_0__types__["b" /* FETCH_USERS */],
+    type: __WEBPACK_IMPORTED_MODULE_0__types__["c" /* FETCH_USERS */],
     payload: res.data
   });
 };
-/* harmony export (immutable) */ __webpack_exports__["b"] = fetchUsers;
+/* harmony export (immutable) */ __webpack_exports__["c"] = fetchUsers;
 
 
 const fetchCurrentUser = () => async (dispatch, getState, api) => {
@@ -147,7 +127,7 @@ const fetchCurrentUser = () => async (dispatch, getState, api) => {
 
   if (auth) {
     return dispatch({
-      type: __WEBPACK_IMPORTED_MODULE_0__types__["a" /* FETCH_CURRENT_USER */],
+      type: __WEBPACK_IMPORTED_MODULE_0__types__["b" /* FETCH_CURRENT_USER */],
       payload: auth
     });
   }
@@ -155,12 +135,51 @@ const fetchCurrentUser = () => async (dispatch, getState, api) => {
   const res = await api.get('/current_user');
 
   return dispatch({
-    type: __WEBPACK_IMPORTED_MODULE_0__types__["a" /* FETCH_CURRENT_USER */],
+    type: __WEBPACK_IMPORTED_MODULE_0__types__["b" /* FETCH_CURRENT_USER */],
     payload: res.data
   });
 };
-/* harmony export (immutable) */ __webpack_exports__["a"] = fetchCurrentUser;
+/* harmony export (immutable) */ __webpack_exports__["b"] = fetchCurrentUser;
 
+
+const fetchAdmins = () => async (dispatch, getState, api) => {
+  const res = await api.get('/admins');
+
+  return dispatch({
+    type: __WEBPACK_IMPORTED_MODULE_0__types__["a" /* FETCH_ADMINS */],
+    payload: res.data
+  });
+};
+/* harmony export (immutable) */ __webpack_exports__["a"] = fetchAdmins;
+
+
+/***/ }),
+/* 6 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__pages_Home_Page__ = __webpack_require__(17);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__pages_Users_List_Page__ = __webpack_require__(18);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__partials_header__ = __webpack_require__(19);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__pages_Not_Found__ = __webpack_require__(20);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__pages_Admins__ = __webpack_require__(21);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__hocs_require_auth__ = __webpack_require__(29);
+
+
+
+
+
+
+
+const routes = new Map();
+
+routes.set('home', { component: __WEBPACK_IMPORTED_MODULE_0__pages_Home_Page__["a" /* default */], path: '/', exact: true });
+routes.set('users list', { component: __WEBPACK_IMPORTED_MODULE_1__pages_Users_List_Page__["a" /* default */], path: '/users' });
+routes.set('admins', { component: Object(__WEBPACK_IMPORTED_MODULE_5__hocs_require_auth__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_4__pages_Admins__["a" /* default */]), path: '/admins' });
+routes.set('header', { component: __WEBPACK_IMPORTED_MODULE_2__partials_header__["a" /* default */] });
+routes.set('not found', { component: __WEBPACK_IMPORTED_MODULE_3__pages_Not_Found__["a" /* default */] });
+
+/* harmony default export */ __webpack_exports__["a"] = (routes);
 
 /***/ }),
 /* 7 */
@@ -186,8 +205,8 @@ Object.defineProperty(__webpack_exports__, "__esModule", { value: true });
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express_http_proxy__ = __webpack_require__(11);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_express_http_proxy___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_express_http_proxy__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__middleware_react_renderer__ = __webpack_require__(12);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__middleware_redux_store__ = __webpack_require__(21);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__client_reducers__ = __webpack_require__(24);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__middleware_redux_store__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__client_reducers__ = __webpack_require__(25);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__utils_api__ = __webpack_require__(8);
 
 
@@ -212,11 +231,13 @@ app.use(__WEBPACK_IMPORTED_MODULE_0_express___default.a.static('public'));
 app.get('*', Object(__WEBPACK_IMPORTED_MODULE_3__middleware_redux_store__["a" /* default */])(__WEBPACK_IMPORTED_MODULE_4__client_reducers__["a" /* default */]), Object(__WEBPACK_IMPORTED_MODULE_2__middleware_react_renderer__["a" /* default */])(), (req, res) => {
   const { html, context } = req;
 
-  if (context.notFound) {
+  if (context.url) {
+    return res.redirect(302, context.url);
+  } else if (context.notFound) {
     res.status(404);
   }
 
-  res.send(html);
+  return res.send(html);
 });
 
 app.get('*', (req, res) => {
@@ -334,7 +355,7 @@ module.exports = {"axios.js":"https://unpkg.com/axios@0.16.2/dist/axios.js","bun
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__routes__ = __webpack_require__(6);
 var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
 
 
@@ -347,6 +368,7 @@ const App = () => [__WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(_
   { key: 'pages' },
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].get('home')),
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].get('users list')),
+  __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].get('admins')),
   __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["Route"], __WEBPACK_IMPORTED_MODULE_2__routes__["a" /* default */].get('not found'))
 )];
 
@@ -380,9 +402,7 @@ const Home = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
   )
 );
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  component: Home
-});
+/* harmony default export */ __webpack_exports__["a"] = (Home);
 
 /***/ }),
 /* 18 */
@@ -395,7 +415,7 @@ const Home = () => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types__ = __webpack_require__(3);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_prop_types__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(5);
 
 
 
@@ -452,14 +472,9 @@ UserList.propTypes = {
   fetchUsers: __WEBPACK_IMPORTED_MODULE_2_prop_types___default.a.func.isRequired
 };
 
-function loadData(store) {
-  return store.dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["b" /* fetchUsers */])());
-}
+UserList.loadData = ({ dispatch }) => dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["c" /* fetchUsers */])());
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  component: Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, { fetchUsers: __WEBPACK_IMPORTED_MODULE_3__actions__["b" /* fetchUsers */] })(UserList),
-  loadData
-});
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_1_react_redux__["connect"])(mapStateToProps, { fetchUsers: __WEBPACK_IMPORTED_MODULE_3__actions__["c" /* fetchUsers */] })(UserList));
 
 /***/ }),
 /* 19 */
@@ -474,7 +489,7 @@ function loadData(store) {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_router_dom__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux__ = __webpack_require__(2);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions__ = __webpack_require__(6);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__actions__ = __webpack_require__(5);
 
 
 
@@ -552,14 +567,13 @@ Header.propTypes = {
   auth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool, __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object]).isRequired
 };
 
+Header.loadData = ({ dispatch }) => dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions__["b" /* fetchCurrentUser */])());
+
 function mapStateToProps({ auth }) {
   return { auth };
 }
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  component: Object(__WEBPACK_IMPORTED_MODULE_3_react_redux__["connect"])(mapStateToProps, { fetchCurrentUser: __WEBPACK_IMPORTED_MODULE_4__actions__["a" /* fetchCurrentUser */] })(Header),
-  loadData: ({ dispatch }) => dispatch(Object(__WEBPACK_IMPORTED_MODULE_4__actions__["a" /* fetchCurrentUser */])())
-});
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_3_react_redux__["connect"])(mapStateToProps, { fetchCurrentUser: __WEBPACK_IMPORTED_MODULE_4__actions__["b" /* fetchCurrentUser */] })(Header));
 
 /***/ }),
 /* 20 */
@@ -608,12 +622,82 @@ NotFound.defaultProps = {
   staticContext: {}
 };
 
-/* harmony default export */ __webpack_exports__["a"] = ({
-  component: NotFound
-});
+/* harmony default export */ __webpack_exports__["a"] = (NotFound);
 
 /***/ }),
 /* 21 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__actions__ = __webpack_require__(5);
+
+
+
+
+
+class Admins extends __WEBPACK_IMPORTED_MODULE_0_react___default.a.Component {
+  componentDidMount() {
+    this.props.fetchAdmins();
+  }
+
+  renderAdmins() {
+    return this.props.admins.map(admin => __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'li',
+      { key: admin.id },
+      admin.name
+    ));
+  }
+
+  render() {
+    return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+      'div',
+      { className: 'container' },
+      __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+        'div',
+        { className: 'row' },
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'header',
+          null,
+          __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'h1',
+            null,
+            'List of Admins'
+          )
+        ),
+        __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+          'ul',
+          null,
+          this.renderAdmins()
+        )
+      )
+    );
+  }
+}
+
+Admins.propTypes = {
+  admins: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.arrayOf(__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.shape({
+    id: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.number.isRequired,
+    name: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.string.isRequied
+  })).isRequired,
+  fetchAdmins: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.func.isRequired
+};
+
+Admins.loadData = ({ dispatch }) => dispatch(Object(__WEBPACK_IMPORTED_MODULE_3__actions__["a" /* fetchAdmins */])());
+
+function mapStateToProps({ admins, auth }) {
+  return { admins, auth };
+}
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps, { fetchAdmins: __WEBPACK_IMPORTED_MODULE_3__actions__["a" /* fetchAdmins */] })(Admins));
+
+/***/ }),
+/* 22 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -622,12 +706,12 @@ NotFound.defaultProps = {
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom__ = __webpack_require__(1);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_thunk__ = __webpack_require__(22);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_thunk__ = __webpack_require__(23);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_redux_thunk___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_redux_thunk__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(23);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios__ = __webpack_require__(24);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_axios___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_axios__);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_4__utils_api__ = __webpack_require__(8);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__client_routes__ = __webpack_require__(5);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_5__client_routes__ = __webpack_require__(6);
 
 
 
@@ -649,13 +733,23 @@ function reduxStoreMiddleware(reducers) {
 
     __WEBPACK_IMPORTED_MODULE_5__client_routes__["a" /* default */].forEach(route => {
       if (Object(__WEBPACK_IMPORTED_MODULE_1_react_router_dom__["matchPath"])(req.path, route)) {
-        if (route.loadData) {
-          promises.push(route.loadData(store));
+        if (route.component.loadData) {
+          promises.push(route.component.loadData(store));
         }
       }
     });
 
-    Promise.all(promises).then(() => {
+    const promisesWrapper = promises.map(promise => {
+      if (promise) {
+        return new Promise(resolve => {
+          promise.then(resolve).catch(resolve);
+        });
+      }
+
+      return null;
+    });
+
+    Promise.all(promisesWrapper).then(() => {
       req.store = store;
       next();
     }).catch(() => next('could not get any routes'));
@@ -663,34 +757,36 @@ function reduxStoreMiddleware(reducers) {
 }
 
 /***/ }),
-/* 22 */
+/* 23 */
 /***/ (function(module, exports) {
 
 module.exports = require("redux-thunk");
 
 /***/ }),
-/* 23 */
+/* 24 */
 /***/ (function(module, exports) {
 
 module.exports = require("axios");
 
 /***/ }),
-/* 24 */
+/* 25 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux__ = __webpack_require__(7);
 /* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_redux__);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__users_reducer__ = __webpack_require__(25);
-/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_reducer__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1__users_reducer__ = __webpack_require__(26);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2__auth_reducer__ = __webpack_require__(27);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3__admins_reducer__ = __webpack_require__(28);
 
 
 
 
-/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({ users: __WEBPACK_IMPORTED_MODULE_1__users_reducer__["a" /* default */], auth: __WEBPACK_IMPORTED_MODULE_2__auth_reducer__["a" /* default */] }));
+
+/* harmony default export */ __webpack_exports__["a"] = (Object(__WEBPACK_IMPORTED_MODULE_0_redux__["combineReducers"])({ users: __WEBPACK_IMPORTED_MODULE_1__users_reducer__["a" /* default */], auth: __WEBPACK_IMPORTED_MODULE_2__auth_reducer__["a" /* default */], admins: __WEBPACK_IMPORTED_MODULE_3__admins_reducer__["a" /* default */] }));
 
 /***/ }),
-/* 25 */
+/* 26 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -700,7 +796,7 @@ module.exports = require("axios");
 
 function usersReducer(state = [], action) {
   switch (action.type) {
-    case __WEBPACK_IMPORTED_MODULE_0__actions_types__["b" /* FETCH_USERS */]:
+    case __WEBPACK_IMPORTED_MODULE_0__actions_types__["c" /* FETCH_USERS */]:
       {
         return action.payload;
       }
@@ -713,7 +809,7 @@ function usersReducer(state = [], action) {
 }
 
 /***/ }),
-/* 26 */
+/* 27 */
 /***/ (function(module, __webpack_exports__, __webpack_require__) {
 
 "use strict";
@@ -722,7 +818,7 @@ function usersReducer(state = [], action) {
 
 /* harmony default export */ __webpack_exports__["a"] = (function (state = false, action) {
   switch (action.type) {
-    case __WEBPACK_IMPORTED_MODULE_0__actions_types__["a" /* FETCH_CURRENT_USER */]:
+    case __WEBPACK_IMPORTED_MODULE_0__actions_types__["b" /* FETCH_CURRENT_USER */]:
       {
         return action.payload || false;
       }
@@ -732,6 +828,95 @@ function usersReducer(state = [], action) {
         return state;
       }
   }
+});
+
+/***/ }),
+/* 28 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony export (immutable) */ __webpack_exports__["a"] = adminsReducer;
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0__actions_types__ = __webpack_require__(4);
+
+
+function adminsReducer(state = [], action) {
+  switch (action.type) {
+    case __WEBPACK_IMPORTED_MODULE_0__actions_types__["a" /* FETCH_ADMINS */]:
+      {
+        return action.payload;
+      }
+
+    default:
+      {
+        return state;
+      }
+  }
+}
+
+/***/ }),
+/* 29 */
+/***/ (function(module, __webpack_exports__, __webpack_require__) {
+
+"use strict";
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react__ = __webpack_require__(0);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_0_react___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_0_react__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types__ = __webpack_require__(3);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_1_prop_types___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_1_prop_types__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux__ = __webpack_require__(2);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_2_react_redux___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_2_react_redux__);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom__ = __webpack_require__(1);
+/* harmony import */ var __WEBPACK_IMPORTED_MODULE_3_react_router_dom___default = __webpack_require__.n(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__);
+
+
+
+
+
+/* harmony default export */ __webpack_exports__["a"] = (ChildComponent => {
+  const RequireAuth = props => {
+    switch (props.auth) {
+      case false:
+        {
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(__WEBPACK_IMPORTED_MODULE_3_react_router_dom__["Redirect"], { to: '/' });
+        }
+      case null:
+        {
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(
+            'div',
+            null,
+            'Loading...'
+          );
+        }
+      default:
+        {
+          return __WEBPACK_IMPORTED_MODULE_0_react___default.a.createElement(ChildComponent, props);
+        }
+    }
+  };
+  /* class RequireAuth extends Component {
+    render() {
+      switch (this.props.auth) {
+        case false: {
+          return<Redirect to="/" />
+        }
+        case null: {
+          return<div>Loading...</div>
+        }
+        default: {
+          return<ChildComponent {...this.props} />
+        }
+      }
+    }
+  } */
+
+  RequireAuth.propTypes = {
+    auth: __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.oneOfType([__WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.bool, __WEBPACK_IMPORTED_MODULE_1_prop_types___default.a.object]).isRequired
+  };
+
+  function mapStateToProps({ auth }) {
+    return { auth };
+  }
+
+  return Object(__WEBPACK_IMPORTED_MODULE_2_react_redux__["connect"])(mapStateToProps)(RequireAuth);
 });
 
 /***/ })

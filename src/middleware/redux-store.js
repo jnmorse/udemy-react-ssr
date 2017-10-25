@@ -19,13 +19,23 @@ export default function reduxStoreMiddleware(reducers) {
 
     routes.forEach((route) => {
       if (matchPath(req.path, route)) {
-        if (route.loadData) {
-          promises.push(route.loadData(store))
+        if (route.component.loadData) {
+          promises.push(route.component.loadData(store))
         }
       }
     })
 
-    Promise.all(promises)
+    const promisesWrapper = promises.map((promise) => {
+      if (promise) {
+        return new Promise((resolve) => {
+          promise.then(resolve).catch(resolve)
+        })
+      }
+
+      return null
+    })
+
+    Promise.all(promisesWrapper)
       .then(() => {
         req.store = store
         next()

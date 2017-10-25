@@ -8,6 +8,7 @@ const App = () => [
   <Switch key="pages">
     <Route {...routes.get('home')} />
     <Route {...routes.get('users list')} />
+    <Route {...routes.get('admins')} />
     <Route {...routes.get('not found')} />
   </Switch>
 ]

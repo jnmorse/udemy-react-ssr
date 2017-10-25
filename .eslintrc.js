@@ -7,9 +7,6 @@ module.exports = {
   extends: 'jnmorse',
 
   rules: {
-    semi: ['error', 'never'],
-    'import/no-extraneous-dependencies': ['error', {
-      devDependencies: ['**/*.test.js,', 'webpack.*.js']
-    }]
+    semi: ['error', 'never']
   }
 }
