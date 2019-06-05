@@ -1,3 +1,4 @@
+// eslint-disable-next-line import/no-relative-parent-imports
 import { FETCH_ADMINS } from '../actions/types'
 
 export default function adminsReducer(state = [], action) {

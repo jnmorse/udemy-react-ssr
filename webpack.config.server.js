@@ -5,6 +5,8 @@ module.exports = {
 
   entry: './src',
 
+  mode: 'development',
+
   output: {
     path: `${__dirname}/server`,
     filename: 'index.js',
@@ -14,8 +16,8 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
+        test: /\.js$/u,
+        exclude: /node_modules/u,
         loader: 'babel-loader'
       }
     ]

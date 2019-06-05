@@ -4,14 +4,18 @@ import { StaticRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 import serializeJavascript from 'serialize-javascript'
 import { Helmet } from 'react-helmet'
+
+// eslint-disable-next-line import/no-relative-parent-imports
 import clientManifest from '../../public/manifest.json'
+
+// eslint-disable-next-line import/no-relative-parent-imports
 import App from '../client/App'
 
+/* eslint-disable max-lines-per-function */
 export default function reactRenderer() {
   return function renderer(req, res, next) {
     const context = {}
 
-    /* eslint-disable function-paren-newline */
     const content = renderToString(
       <Provider store={req.store}>
         <Router location={req.path} context={context}>
@@ -19,7 +23,6 @@ export default function reactRenderer() {
         </Router>
       </Provider>
     )
-    /* eslint-enable function-paren-newline */
 
     const helmet = Helmet.renderStatic()
 
@@ -60,3 +63,4 @@ export default function reactRenderer() {
     return next()
   }
 }
+/* eslint-enable max-lines-per-function */

@@ -2,18 +2,23 @@ import React, { Component } from 'react'
 import { connect } from 'react-redux'
 import PropTypes from 'prop-types'
 import { Helmet } from 'react-helmet'
+
+// eslint-disable-next-line import/no-relative-parent-imports
 import { fetchUsers } from '../actions'
 
 class UserList extends Component {
   componentDidMount() {
+    // eslint-disable-next-line react/destructuring-assignment
     this.props.fetchUsers()
   }
 
   /* eslint-disable class-methods-use-this */
   head() {
-    return(
+    const { users } = this.props
+
+    return (
       <Helmet>
-        <title>{`React SSR: Users List (${this.props.users.length})`}</title>
+        <title>{`React SSR: Users List (${users.length})`}</title>
         <meta property="og:title" content="Users List" />
       </Helmet>
     )
@@ -21,23 +26,21 @@ class UserList extends Component {
   /* eslint-enable class-methods-use-this */
 
   renderUsers() {
-    return this.props.users.map(user => [
-      <li key={user.id}>{user.name}</li>
-    ])
+    const { users } = this.props
+
+    return users.map(user => [<li key={user.id}>{user.name}</li>])
   }
 
   render() {
-    return(
+    return (
       <div className="container">
         {this.head()}
         <div className="row">
           <header>
-            <h1>{'Here\'s a big list of users:'}</h1>
+            <h1>{"Here's a big list of users:"}</h1>
           </header>
 
-          <ul>
-            {this.renderUsers()}
-          </ul>
+          <ul>{this.renderUsers()}</ul>
         </div>
       </div>
     )
@@ -45,17 +48,22 @@ class UserList extends Component {
 }
 
 function mapStateToProps({ users }) {
-  return{ users }
+  return { users }
 }
 
 UserList.propTypes = {
-  users: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequired
-  })).isRequired,
+  users: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequired
+    })
+  ).isRequired,
   fetchUsers: PropTypes.func.isRequired
 }
 
 UserList.loadData = ({ dispatch }) => dispatch(fetchUsers())
 
-export default connect(mapStateToProps, { fetchUsers })(UserList)
+export default connect(
+  mapStateToProps,
+  { fetchUsers }
+)(UserList)

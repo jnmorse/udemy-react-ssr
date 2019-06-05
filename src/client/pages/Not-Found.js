@@ -6,7 +6,7 @@ const NotFound = ({ staticContext }) => {
   // eslint-disable-next-line no-param-reassign
   staticContext.notFound = true
 
-  return(
+  return (
     <section>
       <Helmet>
         <title>React SSR: 404 Not Found</title>

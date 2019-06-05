@@ -3,7 +3,7 @@ import { hydrate } from 'react-dom'
 import { BrowserRouter as Router } from 'react-router-dom'
 import { Provider } from 'react-redux'
 
-import reduxStore from './helpers/redux-store'
+import reduxStore from './redux-store'
 import App from './App'
 
 const { initState } = window

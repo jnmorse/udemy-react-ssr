@@ -1,6 +1,6 @@
 import { FETCH_USERS, FETCH_CURRENT_USER, FETCH_ADMINS } from './types'
 
-export const fetchUsers = () => async (dispatch, getState, api) => {
+const fetchUsers = () => async (dispatch, getState, api) => {
   const res = await api.get('/users')
 
   return dispatch({
@@ -9,7 +9,7 @@ export const fetchUsers = () => async (dispatch, getState, api) => {
   })
 }
 
-export const fetchCurrentUser = () => async (dispatch, getState, api) => {
+const fetchCurrentUser = () => async (dispatch, getState, api) => {
   const { auth } = getState()
 
   if (auth) {
@@ -27,7 +27,7 @@ export const fetchCurrentUser = () => async (dispatch, getState, api) => {
   })
 }
 
-export const fetchAdmins = () => async (dispatch, getState, api) => {
+const fetchAdmins = () => async (dispatch, getState, api) => {
   const res = await api.get('/admins')
 
   return dispatch({
@@ -35,3 +35,5 @@ export const fetchAdmins = () => async (dispatch, getState, api) => {
     payload: res.data
   })
 }
+
+export { fetchAdmins, fetchCurrentUser, fetchUsers }

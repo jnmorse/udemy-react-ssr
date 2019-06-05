@@ -2,23 +2,30 @@
   "env": {
     "client": {
       "presets": [
-        "react", ["env", {
-          "browsers": "last 2 versions"
-        }]
-      ],
-      "plugins": [
-        ["transform-object-rest-spread", {
-          "useBuiltIns": true
-        }],
-        "transform-runtime"
+        "@babel/preset-react",
+        [
+          "@babel/preset-env",
+          {
+            "useBuiltIns": "usage",
+            "corejs": 3,
+            "targets": {
+              "browsers": "last 2 versions"
+            }
+          }
+        ]
       ]
     },
     "server": {
-      "plugins": [
-        ["transform-object-rest-spread", {
-          "useBuiltIns": true
-        }],
-        "transform-react-jsx"
+      "presets": [
+        "@babel/preset-react",
+        [
+          "@babel/preset-env",
+          {
+            "targets": {
+              "node": "current"
+            }
+          }
+        ]
       ]
     }
   }

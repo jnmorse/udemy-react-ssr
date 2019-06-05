@@ -2,16 +2,19 @@ import React from 'react'
 import PropTypes from 'prop-types'
 import { connect } from 'react-redux'
 import { Helmet } from 'react-helmet'
+
+// eslint-disable-next-line import/no-relative-parent-imports
 import { fetchAdmins } from '../actions'
 
 class Admins extends React.Component {
   componentDidMount() {
+    // eslint-disable-next-line react/destructuring-assignment
     this.props.fetchAdmins()
   }
 
   /* eslint-disable class-methods-use-this */
   head() {
-    return(
+    return (
       <Helmet>
         <title>React SSR: List of Admins</title>
         <meta property="og:title" content="List of Admins" />
@@ -21,13 +24,13 @@ class Admins extends React.Component {
   /* eslint-enable class-methods-use-this */
 
   renderAdmins() {
-    return this.props.admins.map(admin => (
-      <li key={admin.id}>{admin.name}</li>
-    ))
+    const { admins } = this.props
+
+    return admins.map(admin => <li key={admin.id}>{admin.name}</li>)
   }
 
   render() {
-    return(
+    return (
       <div className="container">
         {this.head()}
         <div className="row">
@@ -35,9 +38,7 @@ class Admins extends React.Component {
             <h1>List of Admins</h1>
           </header>
 
-          <ul>
-            {this.renderAdmins()}
-          </ul>
+          <ul>{this.renderAdmins()}</ul>
         </div>
       </div>
     )
@@ -45,17 +46,22 @@ class Admins extends React.Component {
 }
 
 Admins.propTypes = {
-  admins: PropTypes.arrayOf(PropTypes.shape({
-    id: PropTypes.number.isRequired,
-    name: PropTypes.string.isRequied
-  })).isRequired,
+  admins: PropTypes.arrayOf(
+    PropTypes.shape({
+      id: PropTypes.number.isRequired,
+      name: PropTypes.string.isRequied
+    })
+  ).isRequired,
   fetchAdmins: PropTypes.func.isRequired
 }
 
 Admins.loadData = ({ dispatch }) => dispatch(fetchAdmins())
 
 function mapStateToProps({ admins, auth }) {
-  return{ admins, auth }
+  return { admins, auth }
 }
 
-export default connect(mapStateToProps, { fetchAdmins })(Admins)
+export default connect(
+  mapStateToProps,
+  { fetchAdmins }
+)(Admins)

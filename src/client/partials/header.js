@@ -2,11 +2,14 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types'
 import { Link } from 'react-router-dom'
 import { connect } from 'react-redux'
+
+// eslint-disable-next-line import/no-relative-parent-imports
 import { fetchCurrentUser } from '../actions'
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 class Header extends Component {
   componentDidMount() {
+    // eslint-disable-next-line react/destructuring-assignment
     this.props.fetchCurrentUser()
   }
 
@@ -19,7 +22,7 @@ class Header extends Component {
       <a href="/api/auth/google">Login</a>
     )
 
-    return(
+    return (
       <header>
         <nav>
           <header className="brand-logo left">
@@ -27,9 +30,13 @@ class Header extends Component {
           </header>
 
           <ul className="right">
-            <li><Link to="/users">Users</Link></li>
-            <li><Link to="/admins">Admins</Link></li>
-            <li>{ authButton }</li>
+            <li>
+              <Link to="/users">Users</Link>
+            </li>
+            <li>
+              <Link to="/admins">Admins</Link>
+            </li>
+            <li>{authButton}</li>
           </ul>
         </nav>
       </header>
@@ -45,7 +52,10 @@ Header.propTypes = {
 Header.loadData = ({ dispatch }) => dispatch(fetchCurrentUser())
 
 function mapStateToProps({ auth }) {
-  return{ auth }
+  return { auth }
 }
 
-export default connect(mapStateToProps, { fetchCurrentUser })(Header)
+export default connect(
+  mapStateToProps,
+  { fetchCurrentUser }
+)(Header)

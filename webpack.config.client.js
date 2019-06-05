@@ -1,5 +1,5 @@
 const DynamicCdn = require('dynamic-cdn-webpack-plugin')
-const CleanWebpackPlugin = require('clean-webpack-plugin')
+const { CleanWebpackPlugin } = require('clean-webpack-plugin')
 const ManifestPlugin = require('webpack-manifest-plugin')
 const { DefinePlugin } = require('webpack')
 
@@ -8,7 +8,10 @@ module.exports = {
     bundle: './src/client'
   },
 
-  devtool: process.env.NODE_ENV !== 'production' ? 'cheap-module-source-map' : false,
+  mode: 'development',
+
+  devtool:
+    process.env.NODE_ENV !== 'production' ? 'cheap-module-source-map' : false,
 
   output: {
     path: `${__dirname}/public`,
@@ -18,15 +21,15 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.js$/,
-        exclude: /node_modules/,
+        test: /\.js$/u,
+        exclude: /node_modules/u,
         loader: 'babel-loader'
       }
     ]
   },
 
   plugins: [
-    new CleanWebpackPlugin(['public/js']),
+    new CleanWebpackPlugin(),
     new DefinePlugin({
       'process.env': {
         NODE_ENV: JSON.stringify(process.env.NODE_ENV || 'development')

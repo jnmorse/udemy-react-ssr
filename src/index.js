@@ -8,13 +8,16 @@ import apiUrl from './utils/api'
 
 const app = express()
 
-app.use('/api', proxy(`${apiUrl}`, {
-  proxyReqOptDecorator(opts) {
-    // eslint-disable-next-line no-param-reassign
-    opts.headers['x-forwarded-host'] = 'localhost:3000'
-    return opts
-  }
-}))
+app.use(
+  '/api',
+  proxy(`${apiUrl}`, {
+    proxyReqOptDecorator(opts) {
+      // eslint-disable-next-line no-param-reassign
+      opts.headers['x-forwarded-host'] = 'localhost:3000'
+      return opts
+    }
+  })
+)
 
 app.use(express.static('public'))
 

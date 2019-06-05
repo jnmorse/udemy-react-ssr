@@ -3,7 +3,10 @@ import { matchPath } from 'react-router-dom'
 import thunk from 'redux-thunk'
 import axios from 'axios'
 
+// eslint-disable-next-line import/no-relative-parent-imports
 import apiUrl from '../utils/api'
+
+// eslint-disable-next-line import/no-relative-parent-imports
 import routes from '../client/routes'
 
 export default function reduxStoreMiddleware(reducers) {
@@ -13,11 +16,15 @@ export default function reduxStoreMiddleware(reducers) {
       headers: { cookie: req.get('cookie') || '' }
     })
 
-    const store = createStore(reducers, {}, applyMiddleware(thunk.withExtraArgument(axiosInstance)))
+    const store = createStore(
+      reducers,
+      {},
+      applyMiddleware(thunk.withExtraArgument(axiosInstance))
+    )
 
     const promises = []
 
-    routes.forEach((route) => {
+    routes.forEach(route => {
       if (matchPath(req.path, route)) {
         if (route.component.loadData) {
           promises.push(route.component.loadData(store))
@@ -25,9 +32,9 @@ export default function reduxStoreMiddleware(reducers) {
       }
     })
 
-    const promisesWrapper = promises.map((promise) => {
+    const promisesWrapper = promises.map(promise => {
       if (promise) {
-        return new Promise((resolve) => {
+        return new Promise(resolve => {
           promise.then(resolve).catch(resolve)
         })
       }
