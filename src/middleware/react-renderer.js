@@ -1,20 +1,20 @@
-import React from 'react'
-import { renderToString, renderToStaticMarkup } from 'react-dom/server'
-import { StaticRouter as Router } from 'react-router-dom'
-import { Provider } from 'react-redux'
-import serializeJavascript from 'serialize-javascript'
-import { Helmet } from 'react-helmet'
+import React from 'react';
+import { renderToString, renderToStaticMarkup } from 'react-dom/server';
+import { StaticRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux';
+import serializeJavascript from 'serialize-javascript';
+import { Helmet } from 'react-helmet';
 
 // eslint-disable-next-line import/no-relative-parent-imports
-import clientManifest from '../../public/manifest.json'
+import clientManifest from '../../public/manifest.json';
 
 // eslint-disable-next-line import/no-relative-parent-imports
-import App from '../client/App'
+import App from '../client/App';
 
 /* eslint-disable max-lines-per-function */
 export default function reactRenderer() {
   return function renderer(req, res, next) {
-    const context = {}
+    const context = {};
 
     const content = renderToString(
       <Provider store={req.store}>
@@ -22,9 +22,9 @@ export default function reactRenderer() {
           <App />
         </Router>
       </Provider>
-    )
+    );
 
-    const helmet = Helmet.renderStatic()
+    const helmet = Helmet.renderStatic();
 
     const AppScripts = () => [
       <script src={clientManifest['axios.js']} />,
@@ -36,7 +36,7 @@ export default function reactRenderer() {
       <script src={clientManifest['redux-thunk.js']} />,
       <script src={clientManifest['react-redux.js']} />,
       <script src={`/${clientManifest['bundle.js']}`} />
-    ]
+    ];
 
     const html = `
       <!DOCTYPE html>
@@ -55,12 +55,12 @@ export default function reactRenderer() {
         </script>
         ${renderToStaticMarkup(<AppScripts />)}
       </body>
-      </html>`
+      </html>`;
 
-    req.context = context
-    req.html = html
+    req.context = context;
+    req.html = html;
 
-    return next()
-  }
+    return next();
+  };
 }
 /* eslint-enable max-lines-per-function */

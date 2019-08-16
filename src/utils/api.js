@@ -1,1 +1,1 @@
-export default 'http://react-ssr-api.herokuapp.com'
+export default 'http://react-ssr-api.herokuapp.com';

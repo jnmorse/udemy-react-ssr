@@ -1,12 +1,14 @@
 {
   "bundle.js": "js/bundle.js",
   "bundle.js.map": "js/bundle.js.map",
-  "react.js": "https://unpkg.com/react@16.8.6/umd/react.development.js",
+  "react.js": "https://unpkg.com/react@16.9.0/umd/react.development.js",
   "react-router-dom.js": "https://unpkg.com/react-router-dom@5.0.1/umd/react-router-dom.js",
-  "react-dom.js": "https://unpkg.com/react-dom@16.8.6/umd/react-dom.development.js",
-  "redux.js": "https://unpkg.com/redux@4.0.1/dist/redux.js",
-  "react-redux.js": "https://unpkg.com/react-redux@7.0.3/dist/react-redux.js",
-  "redux-thunk.js": "https://unpkg.com/redux-thunk@2.3.0/dist/redux-thunk.js",
+  "react-dom.js": "https://unpkg.com/react-dom@16.9.0/umd/react-dom.development.js",
+  "redux.js": "https://unpkg.com/redux@4.0.4/dist/redux.js",
+  "react-redux.js": "https://unpkg.com/react-redux@7.1.0/dist/react-redux.js",
   "axios.js": "https://unpkg.com/axios@0.19.0/dist/axios.js",
+  "redux-thunk.js": "https://unpkg.com/redux-thunk@2.3.0/dist/redux-thunk.js",
+  "prop-types.js": "https://unpkg.com/prop-types@15.7.2/prop-types.js",
+  "react-side-effect.js": "https://unpkg.com/react-side-effect@1.1.5/lib/index.umd.js",
   "object-assign.js": "https://unpkg.com/@umds/object-assign@4.1.1-beta.24/object-assign.js"
 }

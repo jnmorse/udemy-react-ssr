@@ -1,10 +1,10 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 const NotFound = ({ staticContext }) => {
   // eslint-disable-next-line no-param-reassign
-  staticContext.notFound = true
+  staticContext.notFound = true;
 
   return (
     <section>
@@ -17,18 +17,18 @@ const NotFound = ({ staticContext }) => {
         <p>Sorry the page you where looking for was not found</p>
       </header>
     </section>
-  )
-}
+  );
+};
 
 NotFound.propTypes = {
   staticContext: PropTypes.shape({
     url: PropTypes.string,
     notFound: PropTypes.bool
   })
-}
+};
 
 NotFound.defaultProps = {
   staticContext: {}
-}
+};
 
-export default NotFound
+export default NotFound;

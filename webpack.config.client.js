@@ -1,7 +1,7 @@
-const DynamicCdn = require('dynamic-cdn-webpack-plugin')
-const { CleanWebpackPlugin } = require('clean-webpack-plugin')
-const ManifestPlugin = require('webpack-manifest-plugin')
-const { DefinePlugin } = require('webpack')
+const DynamicCdn = require('dynamic-cdn-webpack-plugin');
+const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const ManifestPlugin = require('webpack-manifest-plugin');
+const { DefinePlugin } = require('webpack');
 
 module.exports = {
   entry: {
@@ -38,4 +38,4 @@ module.exports = {
     new ManifestPlugin(),
     new DynamicCdn()
   ]
-}
+};

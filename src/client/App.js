@@ -1,7 +1,7 @@
-import React from 'react'
-import { Route, Switch } from 'react-router-dom'
+import React from 'react';
+import { Route, Switch } from 'react-router-dom';
 
-import routes from './routes'
+import routes from './routes';
 
 const App = () => [
   <Route key="header" {...routes.get('header')} />,
@@ -11,6 +11,6 @@ const App = () => [
     <Route {...routes.get('admins')} />
     <Route {...routes.get('not found')} />
   </Switch>
-]
+];
 
-export default App
+export default App;

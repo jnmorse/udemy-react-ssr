@@ -1,34 +1,34 @@
-import React, { Component } from 'react'
-import { connect } from 'react-redux'
-import PropTypes from 'prop-types'
-import { Helmet } from 'react-helmet'
+import React, { Component } from 'react';
+import { connect } from 'react-redux';
+import PropTypes from 'prop-types';
+import { Helmet } from 'react-helmet';
 
 // eslint-disable-next-line import/no-relative-parent-imports
-import { fetchUsers } from '../actions'
+import { fetchUsers } from '../actions';
 
 class UserList extends Component {
   componentDidMount() {
     // eslint-disable-next-line react/destructuring-assignment
-    this.props.fetchUsers()
+    this.props.fetchUsers();
   }
 
   /* eslint-disable class-methods-use-this */
   head() {
-    const { users } = this.props
+    const { users } = this.props;
 
     return (
       <Helmet>
         <title>{`React SSR: Users List (${users.length})`}</title>
         <meta property="og:title" content="Users List" />
       </Helmet>
-    )
+    );
   }
   /* eslint-enable class-methods-use-this */
 
   renderUsers() {
-    const { users } = this.props
+    const { users } = this.props;
 
-    return users.map(user => [<li key={user.id}>{user.name}</li>])
+    return users.map(user => [<li key={user.id}>{user.name}</li>]);
   }
 
   render() {
@@ -43,12 +43,12 @@ class UserList extends Component {
           <ul>{this.renderUsers()}</ul>
         </div>
       </div>
-    )
+    );
   }
 }
 
 function mapStateToProps({ users }) {
-  return { users }
+  return { users };
 }
 
 UserList.propTypes = {
@@ -59,11 +59,11 @@ UserList.propTypes = {
     })
   ).isRequired,
   fetchUsers: PropTypes.func.isRequired
-}
+};
 
-UserList.loadData = ({ dispatch }) => dispatch(fetchUsers())
+UserList.loadData = ({ dispatch }) => dispatch(fetchUsers());
 
 export default connect(
   mapStateToProps,
   { fetchUsers }
-)(UserList)
+)(UserList);

@@ -6,7 +6,5 @@ module.exports = {
 
   extends: 'jnmorse',
 
-  rules: {
-    semi: ['error', 'never']
-  }
-}
+  rules: {}
+};
