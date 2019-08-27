@@ -6,5 +6,7 @@ module.exports = {
 
   extends: 'jnmorse',
 
-  rules: {}
+  rules: {
+    'react/static-property-placement': ['warn', 'static public field']
+  }
 };

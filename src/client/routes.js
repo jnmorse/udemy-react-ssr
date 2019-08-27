@@ -10,7 +10,7 @@ const routes = new Map();
 routes.set('home', { component: Home, path: '/', exact: true });
 routes.set('users list', { component: UsersList, path: '/users' });
 routes.set('admins', { component: requireAuth(Admins), path: '/admins' });
-routes.set('header', { component: Header });
+routes.set('header', { component: Header, path: '*' });
 routes.set('not found', { component: NotFound });
 
 export default routes;

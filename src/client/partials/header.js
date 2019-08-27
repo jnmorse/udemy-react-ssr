@@ -8,6 +8,11 @@ import { fetchCurrentUser } from '../actions';
 
 /* eslint-disable jsx-a11y/anchor-is-valid */
 class Header extends Component {
+  static propTypes = {
+    fetchCurrentUser: PropTypes.func.isRequired,
+    auth: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired
+  };
+
   componentDidMount() {
     // eslint-disable-next-line react/destructuring-assignment
     this.props.fetchCurrentUser();
@@ -43,11 +48,6 @@ class Header extends Component {
     );
   }
 }
-
-Header.propTypes = {
-  fetchCurrentUser: PropTypes.func.isRequired,
-  auth: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired
-};
 
 Header.loadData = ({ dispatch }) => dispatch(fetchCurrentUser());
 

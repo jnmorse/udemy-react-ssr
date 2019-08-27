@@ -6216,6 +6216,10 @@ __webpack_require__.r(__webpack_exports__);
     auth: prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.oneOfType([prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.bool, prop_types__WEBPACK_IMPORTED_MODULE_1___default.a.object]).isRequired
   };
 
+  if (ChildComponent.loadData) {
+    RequireAuth.loadData = ChildComponent.loadData;
+  }
+
   function mapStateToProps(_ref) {
     var auth = _ref.auth;
     return {
@@ -6332,6 +6336,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -6392,13 +6398,13 @@ function (_React$Component) {
   return Admins;
 }(react__WEBPACK_IMPORTED_MODULE_11___default.a.Component);
 
-Admins.propTypes = {
+_defineProperty(Admins, "propTypes", {
   admins: prop_types__WEBPACK_IMPORTED_MODULE_12___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_12___default.a.shape({
     id: prop_types__WEBPACK_IMPORTED_MODULE_12___default.a.number.isRequired,
     name: prop_types__WEBPACK_IMPORTED_MODULE_12___default.a.string.isRequied
   })).isRequired,
   fetchAdmins: prop_types__WEBPACK_IMPORTED_MODULE_12___default.a.func.isRequired
-};
+});
 
 Admins.loadData = function (_ref) {
   var dispatch = _ref.dispatch;
@@ -6566,6 +6572,8 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
 
 function _setPrototypeOf(o, p) { _setPrototypeOf = Object.setPrototypeOf || function _setPrototypeOf(o, p) { o.__proto__ = p; return o; }; return _setPrototypeOf(o, p); }
 
+function _defineProperty(obj, key, value) { if (key in obj) { Object.defineProperty(obj, key, { value: value, enumerable: true, configurable: true, writable: true }); } else { obj[key] = value; } return obj; }
+
 
 
 
@@ -6627,20 +6635,20 @@ function (_Component) {
   return UserList;
 }(react__WEBPACK_IMPORTED_MODULE_11__["Component"]);
 
+_defineProperty(UserList, "propTypes", {
+  users: prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.shape({
+    id: prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.number.isRequired,
+    name: prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.string.isRequired
+  })).isRequired,
+  fetchUsers: prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.func.isRequired
+});
+
 function mapStateToProps(_ref) {
   var users = _ref.users;
   return {
     users: users
   };
 }
-
-UserList.propTypes = {
-  users: prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.arrayOf(prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.shape({
-    id: prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.number.isRequired,
-    name: prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.string.isRequired
-  })).isRequired,
-  fetchUsers: prop_types__WEBPACK_IMPORTED_MODULE_13___default.a.func.isRequired
-};
 
 UserList.loadData = function (_ref2) {
   var dispatch = _ref2.dispatch;
@@ -6993,7 +7001,8 @@ routes.set('admins', {
   path: '/admins'
 });
 routes.set('header', {
-  component: _partials_header__WEBPACK_IMPORTED_MODULE_7__["default"]
+  component: _partials_header__WEBPACK_IMPORTED_MODULE_7__["default"],
+  path: '*'
 });
 routes.set('not found', {
   component: _pages_Not_Found__WEBPACK_IMPORTED_MODULE_8__["default"]

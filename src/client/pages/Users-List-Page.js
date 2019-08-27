@@ -7,6 +7,16 @@ import { Helmet } from 'react-helmet';
 import { fetchUsers } from '../actions';
 
 class UserList extends Component {
+  static propTypes = {
+    users: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequired
+      })
+    ).isRequired,
+    fetchUsers: PropTypes.func.isRequired
+  };
+
   componentDidMount() {
     // eslint-disable-next-line react/destructuring-assignment
     this.props.fetchUsers();
@@ -50,16 +60,6 @@ class UserList extends Component {
 function mapStateToProps({ users }) {
   return { users };
 }
-
-UserList.propTypes = {
-  users: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequired
-    })
-  ).isRequired,
-  fetchUsers: PropTypes.func.isRequired
-};
 
 UserList.loadData = ({ dispatch }) => dispatch(fetchUsers());
 

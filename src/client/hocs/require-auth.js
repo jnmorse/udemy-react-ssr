@@ -22,6 +22,10 @@ export default ChildComponent => {
     auth: PropTypes.oneOfType([PropTypes.bool, PropTypes.object]).isRequired
   };
 
+  if (ChildComponent.loadData) {
+    RequireAuth.loadData = ChildComponent.loadData;
+  }
+
   function mapStateToProps({ auth }) {
     return { auth };
   }

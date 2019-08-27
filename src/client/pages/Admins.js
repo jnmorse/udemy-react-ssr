@@ -7,6 +7,16 @@ import { Helmet } from 'react-helmet';
 import { fetchAdmins } from '../actions';
 
 class Admins extends React.Component {
+  static propTypes = {
+    admins: PropTypes.arrayOf(
+      PropTypes.shape({
+        id: PropTypes.number.isRequired,
+        name: PropTypes.string.isRequied
+      })
+    ).isRequired,
+    fetchAdmins: PropTypes.func.isRequired
+  };
+
   componentDidMount() {
     // eslint-disable-next-line react/destructuring-assignment
     this.props.fetchAdmins();
@@ -44,16 +54,6 @@ class Admins extends React.Component {
     );
   }
 }
-
-Admins.propTypes = {
-  admins: PropTypes.arrayOf(
-    PropTypes.shape({
-      id: PropTypes.number.isRequired,
-      name: PropTypes.string.isRequied
-    })
-  ).isRequired,
-  fetchAdmins: PropTypes.func.isRequired
-};
 
 Admins.loadData = ({ dispatch }) => dispatch(fetchAdmins());
 
